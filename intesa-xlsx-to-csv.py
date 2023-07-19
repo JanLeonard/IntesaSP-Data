@@ -33,6 +33,7 @@ except:
 ## mi connetto al db e inserisco quelle non già presenti
 connection = sqlite3.connect('database.db')
 connection.row_factory = sqlite3.Row
+connection.execute('CREATE TABLE IF NOT EXISTS dati_xlsx_to_csv (id integer primary key autoincrement not null,Data varchar(19) NOT NULL,Operazione varchar(73) NOT NULL,Dettagli varchar(267) NOT NULL,ContoOcarta varchar(47) NOT NULL,Contabilizzazione varchar(18) NOT NULL,Categoria varchar(41) NOT NULL,Valuta varchar(3) NOT NULL,Importo decimal(7,2) NOT NULL,UNIQUE(Data,Operazione,Dettagli,ContoOcarta,Contabilizzazione,Categoria,Valuta,Importo))')
 connection.commit()
 
 sum=0
